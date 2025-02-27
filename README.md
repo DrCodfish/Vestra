@@ -16,12 +16,19 @@ Vestra is a lightweight, flexible, and powerful interpreted language designed fo
 
 # **Getting Started**
 
-### Prerequisites
+## If you built from source (ie: **the current git clone**) then you will need:
+## This will not be a problem once options for a package manager or pre built executables becomes avaible. A list of these types is provided: 
+#     - .appimage (linux)
+#     - .deb or .rpm (linux)
+#     - .exe (windows)
+#     - .dmg (mac)
+
+**Docker may not be avaible for some time**
 
 - Rust (latest stable edition)
 - Cargo (Rust’s package manager)
 
-###Notice, Vestra will still rely on Rust's package mangager **Cargo** since that is what it was built on**
+### However, once .tar.gz .deb
 
 # **Installation**
 

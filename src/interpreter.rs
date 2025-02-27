@@ -1,31 +1,30 @@
-/* interpreter.rs - executes parsed code*/
+// src/interpreter.rs
+
 use crate::parser::Command;
-use crate::value::Value;
-use std::collections::HashMap;
-use std::io::{self, Write};
+use std::io;
 
-pub fn interpret(commands: Vec<Command>, context: &mut HashMap<String, Value>) -> io::Result<()> {
-    let stdout = io::stdout();
-    let mut handle = stdout.lock();
-
+pub fn interpret(commands: Vec<Command>) -> io::Result<()> {
     for command in commands {
         match command {
-            Command::Print(text) => writeln!(handle, "{}", text)?,
-            Command::Set(key, value) => { context.insert(key, value); },
-            Command::If { variable, value, then_branch, else_branch } => {
-                if context.get(&variable) == Some(&value) {
-                    interpret(then_branch, context)?;
-                } else {
-                    interpret(else_branch, context)?;
-                }
+            Command::Print(msg) => {
+                println!("{}", msg);
             }
-            Command::While { variable, value, body } => {
-                while context.get(&variable) == Some(&value) {
-                    interpret(body.clone(), context)?;
-                }
+            Command::Set(var, value) => {
+                // Handle the Set command
+                println!("Setting {} = {}", var, value);
+            }
+            Command::If(cond, then_cmds, else_cmds) => {
+                // Handle the If command
+                println!("If condition: {}", cond);
+                interpret(then_cmds)?; // Interpret then commands
+                interpret(else_cmds)?; // Interpret else commands
+            }
+            Command::While(cond, cmds) => {
+                // Handle the While command
+                println!("While condition: {}", cond);
+                interpret(cmds)?; // Interpret while loop commands
             }
         }
     }
-
     Ok(())
 }

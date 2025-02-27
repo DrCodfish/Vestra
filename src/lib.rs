@@ -1,6 +1,6 @@
-/* lib.rs - the main library interface */
-pub mod token; // Include the token module
-pub mod tokenizer; // Include the tokenizer module
+//src/lib.rs
 pub mod parser;
-pub mod value;
 pub mod interpreter;
+pub mod tokenizer;
+pub mod token;
+pub mod value;

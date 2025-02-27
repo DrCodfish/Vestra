@@ -1,5 +1,6 @@
-/* value.rs - defines value type for Vestra scripts*/
-#[derive(Debug, Clone, PartialEq)]
+// src/value.rs
+
+#[derive(Clone, Debug)]
 pub enum Value {
     String(String),
     Number(f64),

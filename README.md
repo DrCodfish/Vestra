@@ -29,7 +29,7 @@ Vestra is a lightweight, flexible, and powerful interpreted language designed fo
 
 **Docker may not be avaible for some time**
 
-# Beta Install:
+# Pre-Alpha Install:
 
 Clone the Vestra repository and build the project:
 

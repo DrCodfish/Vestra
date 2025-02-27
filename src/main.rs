@@ -1,10 +1,10 @@
-/* main.rs - entry point for the Vestra script*/
+/*main.rs*/
 use vestra::interpreter::interpret;
 use vestra::parser::parse;
+use vestra::tokenizer::Tokenizer; // Import the Tokenizer
 use std::collections::HashMap;
 use std::env;
 use std::fs;
-use vestra::value::Value;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -14,6 +14,13 @@ fn main() {
     }
 
     let file_path = &args[1];
+
+    // Check for the .vs extension
+    if !file_path.ends_with(".vs") {
+        eprintln!("Error: The file must have a .vs extension.");
+        return;
+    }
+
     let code = match fs::read_to_string(file_path) {
         Ok(code) => code,
         Err(e) => {
@@ -22,8 +29,11 @@ fn main() {
         }
     };
 
+    let mut tokenizer = Tokenizer::new(&code);
+    let tokens = tokenizer.tokenize(); // Tokenize the code
+    let commands = parse(tokens); // Parse the tokens
+
     let mut context = HashMap::new();
-    let commands = parse(&code);
     if let Err(e) = interpret(commands, &mut context) {
         eprintln!("Error during interpretation: {}", e);
     }

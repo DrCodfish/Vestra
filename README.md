@@ -21,6 +21,8 @@ Vestra is a lightweight, flexible, and powerful interpreted language designed fo
 - Rust (latest stable edition)
 - Cargo (Rust’s package manager)
 
+###Notice, Vestra will still rely on Rust's package mangager **Cargo** since that is what it was built on**
+
 # **Installation**
 
 Clone the Vestra repository and build the project:

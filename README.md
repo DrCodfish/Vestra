@@ -29,4 +29,52 @@ Clone the Vestra repository and build the project:
 git clone https://github.com/yourusername/vestra.git
 cd vestra
 cargo build --release
+```
+
+##**Running a Vestra script**
+
+**Create a simple Vestra script (example.ves):**
+```bash
+set greeting = "Hello, Vestra!"
+print greeting
+```
+**Run it**
+```bash
+cargo run -- example.ves
+```
+**Output:**
+```bash
+Hello Vestra!
+```
+
+##**Language Features**
+
+**Variables**
+```bash
+print "Vestra is awesome!"
+```
+
+**Conditions**
+```bash
+set lang = "Vestra"
+if lang == "Vestra"
+    print "You're using Vestra!"
+else
+    print "This isn’t Vestra!"
+```
+
+**Loops**
+```bash
+set count = 0
+while count < 5
+    print count
+    set count = count + 1
+```
+
+
+
+
+
+
+
 

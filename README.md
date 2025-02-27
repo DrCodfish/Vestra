@@ -34,21 +34,21 @@ Vestra is a lightweight, flexible, and powerful interpreted language designed fo
 Clone the Vestra repository and build the project:
 
 ```bash
-git clone https://github.com/yourusername/vestra.git
+git clone https://github.com/DrCodfish/target.zip
 cd vestra
 cargo build --release
 ```
 
 ##**Running a Vestra script**
 
-**Create a simple Vestra script (example.ves):**
+**Create a simple Vestra script (example.vss):**
 ```bash
 set greeting = "Hello, Vestra!"
 print greeting
 ```
 **Run it**
 ```bash
-cargo run -- example.ves
+cargo run -- example.vs
 ```
 **Output:**
 ```bash

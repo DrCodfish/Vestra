@@ -1,1 +1,2 @@
 *.vs linguist-language=Vestra
+*.vs linguist-detectable=false

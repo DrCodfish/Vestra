@@ -18,10 +18,10 @@ Vestra is a lightweight, flexible, and powerful interpreted language designed fo
 
 ## If you built from source (ie: **the current git clone**) then you will need:
 ## This will not be a problem once options for a package manager or pre built executables becomes avaible. A list of these types is provided: 
-#     - .appimage (linux)
-#     - .deb or .rpm (linux)
-#     - .exe (windows)
-#     - .dmg (mac)
+- .appimage (linux)
+- .deb or .rpm (linux)
+- .exe (windows)
+- .dmg (mac)
 
 **Docker may not be avaible for some time**
 

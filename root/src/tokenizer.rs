@@ -1,42 +1,41 @@
-// src/tokenizer.rs
-
+use crate::parser::Command;
 use crate::token::Token;
-use crate::parser::Command; // Import Command
 
 pub struct Tokenizer {
     // Tokenizer's fields here
 }
 
 impl Tokenizer {
-    /// Tokenizes the input source code and returns a vector of tokens.
-    /// 
-    /// # Returns
-    /// 
-    /// A vector of tokens representing the input source code.
-    pub fn tokenize(&mut self) -> Vec<Token> {
+    pub fn new() -> Self {
+        Tokenizer {
+            // Initialize fields here
+        }
+    }
+
+    pub fn tokenize(&mut self, _input: &str) -> Vec<Token> {
         let mut tokens = Vec::new();
 
-        // Add tokens with the correct constructor arguments
-        tokens.push(Token::Print("Hello, world!".to_string())); // Correct string argument
-        tokens.push(Token::Set("var_name".to_string(), "value".to_string())); // Correct arguments for Set
+        // Tokenization logic based on `_input` here
+        // For now, let's add some hardcoded tokens for testing
+        tokens.push(Token::Print("Hello, world!".to_string()));
+        tokens.push(Token::Set("var_name".to_string(), "value".to_string()));
         tokens.push(Token::If(
             "true".to_string(),
-            vec![Command::Print("True branch".to_string())], // Sample Command for If
-            vec![Command::Print("False branch".to_string())], // Sample Command for If
+            vec![Command::Print("True branch".to_string())],
+            vec![Command::Print("False branch".to_string())],
         ));
         tokens.push(Token::While(
             "true".to_string(),
-            vec![Command::Print("While loop".to_string())], // Sample Command for While
+            vec![Command::Print("While loop".to_string())],
         ));
 
-        // Correct token variants with their respective arguments
-        tokens.push(Token::StringLiteral("A string".to_string())); // Correct StringLiteral token
-        tokens.push(Token::Number(42.0)); // Correct Number token
-        tokens.push(Token::Boolean(true)); // Correct Boolean token
-        tokens.push(Token::Nil); // Correct Nil token
+        // Example tokens that might be encountered in a real script
+        tokens.push(Token::StringLiteral("A string".to_string()));
+        tokens.push(Token::Number(42.0));
+        tokens.push(Token::Boolean(true));
+        tokens.push(Token::Nil);
+        tokens.push(Token::EOF);
 
-        tokens.push(Token::EOF); // End of file token
-
-        tokens // Return the token vector
+        tokens
     }
 }

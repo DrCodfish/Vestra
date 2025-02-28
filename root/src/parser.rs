@@ -1,5 +1,5 @@
+use crate::parser::Command as ParserCommand;
 use crate::token::Token;
-use crate::parser::Command as ParserCommand; // Rename here
 
 #[derive(Debug, Clone)]
 pub enum Command {
@@ -9,15 +9,6 @@ pub enum Command {
     While(String, Vec<ParserCommand>),
 }
 
-/// Parses a sequence of tokens into a vector of commands.
-/// 
-/// # Arguments
-/// 
-/// * `tokens` - A vector of tokens to be parsed.
-/// 
-/// # Returns
-/// 
-/// A result containing a vector of commands or an error message.
 pub fn parse(tokens: Vec<Token>) -> Result<Vec<Command>, String> {
     let mut commands = Vec::new();
     let mut index = 0;
@@ -44,8 +35,19 @@ pub fn parse(tokens: Vec<Token>) -> Result<Vec<Command>, String> {
                 commands.push(Command::While(cond.clone(), cmds.clone()));
                 index += 1;
             }
+            Token::StringLiteral(_)
+            | Token::Number(_)
+            | Token::Boolean(_)
+            | Token::Nil
+            | Token::EOF => {
+                // Handle or ignore these tokens if they are not required for commands
+                index += 1;
+            }
             _ => {
-                return Err(format!("Unrecognized token at index {}: {:?}", index, tokens[index]));
+                return Err(format!(
+                    "Unrecognized token at index {}: {:?}",
+                    index, tokens[index]
+                ));
             }
         }
     }

@@ -1,9 +1,9 @@
 // src/lib.rs
 
-pub mod parser;
 pub mod interpreter;
-pub mod tokenizer;
+pub mod parser;
 pub mod token;
+pub mod tokenizer;
 pub mod value;
 
 #[cfg(test)]

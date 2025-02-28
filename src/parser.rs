@@ -1,20 +1,25 @@
-//src/parser.rs
-
 use crate::token::Token;
 use crate::parser::Command as ParserCommand; // Rename here
 
-#[derive(Debug, Clone)] // Add Clone trait here
+#[derive(Debug, Clone)]
 pub enum Command {
     Print(String),
     Set(String, String),
-    If(String, Vec<ParserCommand>, Vec<ParserCommand>), // Use ParserCommand here
-    While(String, Vec<ParserCommand>), // Use ParserCommand here
+    If(String, Vec<ParserCommand>, Vec<ParserCommand>),
+    While(String, Vec<ParserCommand>),
 }
 
-// This function should convert tokens into Command
+/// Parses a sequence of tokens into a vector of commands.
+/// 
+/// # Arguments
+/// 
+/// * `tokens` - A vector of tokens to be parsed.
+/// 
+/// # Returns
+/// 
+/// A result containing a vector of commands or an error message.
 pub fn parse(tokens: Vec<Token>) -> Result<Vec<Command>, String> {
     let mut commands = Vec::new();
-    
     let mut index = 0;
 
     while index < tokens.len() {
@@ -40,7 +45,7 @@ pub fn parse(tokens: Vec<Token>) -> Result<Vec<Command>, String> {
                 index += 1;
             }
             _ => {
-                return Err(format!("Unrecognized token: {:?}", tokens[index]));
+                return Err(format!("Unrecognized token at index {}: {:?}", index, tokens[index]));
             }
         }
     }

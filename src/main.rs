@@ -1,10 +1,9 @@
-// src/main.rs
-
 use vestra::parser::parse;
 use vestra::interpreter::interpret;
 use vestra::tokenizer::Tokenizer;
 
 fn main() {
+    // Initialize the tokenizer
     let mut tokenizer = Tokenizer {
         // Tokenizer initialization here
     };
@@ -13,10 +12,15 @@ fn main() {
     let tokens = tokenizer.tokenize();
 
     // Parse the tokens into commands (assuming parse function returns Vec<Command>)
-    let commands = parse(tokens).expect("Failed to parse tokens");
-
-    // Now interpret the commands
-    if let Err(e) = interpret(commands) {
-        eprintln!("Error during interpretation: {}", e);
+    match parse(tokens) {
+        Ok(commands) => {
+            // Now interpret the commands
+            if let Err(e) = interpret(commands) {
+                eprintln!("Error during interpretation: {}", e);
+            }
+        }
+        Err(e) => {
+            eprintln!("Failed to parse tokens: {}", e);
+        }
     }
 }

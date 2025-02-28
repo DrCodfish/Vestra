@@ -8,6 +8,11 @@ pub struct Tokenizer {
 }
 
 impl Tokenizer {
+    /// Tokenizes the input source code and returns a vector of tokens.
+    /// 
+    /// # Returns
+    /// 
+    /// A vector of tokens representing the input source code.
     pub fn tokenize(&mut self) -> Vec<Token> {
         let mut tokens = Vec::new();
 

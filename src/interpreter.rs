@@ -1,8 +1,15 @@
-// src/interpreter.rs
-
 use crate::parser::Command;
 use std::io;
 
+/// Interprets a vector of commands and executes them.
+/// 
+/// # Arguments
+/// 
+/// * `commands` - A vector of commands to be interpreted.
+/// 
+/// # Returns
+/// 
+/// An `io::Result` indicating success or failure.
 pub fn interpret(commands: Vec<Command>) -> io::Result<()> {
     for command in commands {
         match command {

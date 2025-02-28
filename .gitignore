@@ -1,1 +1,15 @@
-/target
+#Ignore node_modules
+node_modules/
+
+#Ignore build output
+/dist/
+/build/
+
+#Ignore Logs
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.dbx
+
+#Any others needed

@@ -22,8 +22,8 @@ Vestra is a lightweight, flexible, and powerful interpreted language designed fo
 Clone the Vestra repository and build the project:
 
 ```bash
-git clone https://github.com/DrCodfish/vestra-interpreter.git
-cd vestra-interpreter
+git clone https://github.com/DrCodfish/Vestra
+cd Vestra
 cargo build --release
 ```
 
@@ -77,8 +77,8 @@ while count < 5
 
 ## **Contributing**
 
-Contributions are welcome! Please open an issue or submit a pull request.
+To contribute, view the CONTRIBUTING.md
 
-## **License**
+# **License**
 
 This project is licensed under the MPL 2.0 License.

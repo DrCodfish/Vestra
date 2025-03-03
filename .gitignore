@@ -14,3 +14,9 @@
 
 # Ignore other temporary files
 *.tmp
+
+# Ignore log files
+*.log
+
+# Ignore fingerprint files
+/target/debug/.fingerprint/

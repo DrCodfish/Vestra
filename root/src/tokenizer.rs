@@ -16,7 +16,7 @@ impl Tokenizer {
         let mut tokens = Vec::new();
 
         // Tokenization logic based on `_input` here
-        // For now, let's add some hardcoded tokens for testing
+        // Temporary hardcoded tokens
         tokens.push(Token::Print("Hello, world!".to_string()));
         tokens.push(Token::Set("var_name".to_string(), "value".to_string()));
         tokens.push(Token::If(

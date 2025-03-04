@@ -6,8 +6,8 @@ use vestra::tokenizer::Tokenizer;
 
 fn main() {
     let matches = Command::new("Vestra")
-        .version("0.3.0")
-        .author("Author Name <author@example.com>")
+        .version("0.3.1")
+        .author("Author Name <DrCodfish")
         .about("A custom language interpreter")
         .subcommand(
             Command::new("run").about("Runs a Vestra script").arg(
@@ -20,13 +20,16 @@ fn main() {
 
     if let Some(matches) = matches.subcommand_matches("run") {
         if let Some(filename) = matches.get_one::<String>("FILE") {
-            run_script(filename);
+            if let Err(e) = run_script(filename) {
+                eprintln!("Error: {}", e)
+            }
         }
     }
 }
 
-fn run_script(filename: &str) {
-    let contents = fs::read_to_string(filename).expect("Something went wrong reading the file");
+fn run_script(filename: &str) -> Result<(), Box<dyn std::error::Error>> {
+    let contents = fs::read_to_string(filename)
+        .map_err(|e| format!("Failed to read file '{}': {}", filename, e))?;
 
     let mut tokenizer = Tokenizer::new();
 
@@ -34,10 +37,10 @@ fn run_script(filename: &str) {
     let tokens = tokenizer.tokenize(&contents);
 
     // Parse the tokens into commands (assuming parse function returns Vec<Command>)
-    let commands = parse(tokens).expect("Failed to parse tokens");
+    let commands = parse(tokens).map_err(|e| format!("Failed to parse tokens: {}", e))?;
 
     // Now interpret the commands
-    if let Err(e) = interpret(commands) {
-        eprintln!("Error during interpretation: {}", e);
-    }
+    interpret(commands).map_err(|e| format!("Error during interpretation: {}", e))?;
+    
+    Ok(())
 }

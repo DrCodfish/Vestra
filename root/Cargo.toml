@@ -9,3 +9,6 @@ repository = "https://github.com/DrCodfish/vestra-interpreter"
 
 [dependencies]
 clap = "4.0"
+
+# This section is optional but can be included to specify additional build dependencies if needed
+[build-dependencies]

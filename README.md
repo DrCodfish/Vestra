@@ -66,14 +66,9 @@ You can also download and use the pre-built binaries from the [Releases](https:/
 
 1. **Download the Latest Release:**
 
-   Go to the [Releases](https://github.com/DrCodfish/Vestra/releases) page and download the appropriate `.zip` or `.tar.gz` file for your operating system.
+   Go to the [Releases](https://github.com/DrCodfish/Vestra/releases) page and download the appropriate `.tar.gz` file for your operating system.
 
 2. **Extract the Archive:**
-
-   For `.zip` files:
-   ```bash
-   unzip vestra-x.y.z.zip
-   ```
 
    For `.tar.gz` files:
    ```bash
@@ -92,7 +87,6 @@ You can also download and use the pre-built binaries from the [Releases](https:/
    sudo ln -s /usr/local/bin/vestra /usr/bin/vestra
    ```
 
-### Example: Installing from a .tar.gz File in the Home Directory
 
 If you have downloaded the `.tar.gz` file to your home directory (`~/`), follow these steps to install Vestra:
 
@@ -105,31 +99,31 @@ If you have downloaded the `.tar.gz` file to your home directory (`~/`), follow 
 2. **Extract the .tar.gz File:**
 
    ```bash
-   tar -xvzf vestra-x.y.z.tar.gz
+   tar -xvzf vestra-x64_86-x.y.z.tar.gz
    ```
 
-3. **Navigate to the Extracted Directory:**
+3. **Navigate to the created directory**
 
    ```bash
-   cd vestra-x.y.z
+   cd bin
    ```
 
 4. **Install the Binary:**
 
    ```bash
-   sudo cp vestra /usr/local/bin/vestra
+   sudo cp vestra /usr/local/bin/release/vestra
    ```
 
 5. **Ensure the Binary is Executable:**
 
    ```bash
-   sudo chmod +x /usr/local/bin/vestra
+   sudo chmod +x /usr/local/bin/release/vestra
    ```
 
 6. **Create a Symbolic Link (Optional but Recommended):**
 
    ```bash
-   sudo ln -s /usr/local/bin/vestra /usr/bin/vestra
+   sudo ln -s /usr//bin/release/vestra /usr/bin/vestra
    ```
 
 ### Running a Vestra Script

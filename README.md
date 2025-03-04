@@ -27,6 +27,54 @@ cd Vestra
 cargo build --release
 ```
 
+### System-Wide Installation
+
+To make Vestra accessible system-wide, follow these steps:
+
+1. **Install the Binary:**
+   ```bash
+   sudo cp target/release/vestra /usr/local/bin/vestra
+   ```
+
+2. **Create a Symbolic Link (Optional):**
+   ```bash
+   sudo ln -s /usr/local/bin/vestra /usr/bin/vestra
+   ```
+
+### Using Release Files
+
+You can also download and use the pre-built binaries from the [Releases](https://github.com/DrCodfish/Vestra/releases) page. Follow these steps:
+
+1. **Download the Latest Release:**
+
+   Go to the [Releases](https://github.com/DrCodfish/Vestra/releases) page and download the appropriate `.zip` or `.tar.gz`
+   Currently the only versions are avaible for Debain
+   
+   
+2. **Extract the Archive:**
+
+   For `.zip` files:
+   ```bash
+   unzip vestra-x.y.z.zip
+   ```
+
+   For `.tar.gz` files:
+   ```bash
+   tar -xvzf vestra-x.y.z.tar.gz
+   ```
+
+3. **Install the Binary:**
+
+   ```bash
+   sudo cp vestra-x.y.z/vestra /usr/local/bin/vestra
+   ```
+
+4. **Create a Symbolic Link (Optional):**
+
+   ```bash
+   sudo ln -s /usr/local/bin/vestra /usr/bin/vestra
+   ```
+
 ### Running a Vestra Script
 
 Create a simple Vestra script (example.vss):
@@ -39,7 +87,7 @@ print greeting
 Run it:
 
 ```bash
-cargo run -- example.vss
+vestra run example.vs
 ```
 
 Output:

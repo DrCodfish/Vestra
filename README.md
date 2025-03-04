@@ -36,7 +36,26 @@ To make Vestra accessible system-wide, follow these steps:
    sudo cp target/release/vestra /usr/local/bin/vestra
    ```
 
-2. **Create a Symbolic Link (Optional):**
+2. **Ensure the Binary is Executable:**
+   ```bash
+   sudo chmod +x /usr/local/bin/vestra
+   ```
+
+3. **Check the PATH:**
+   Verify that `/usr/local/bin` is included in your PATH by running:
+   ```bash
+   echo $PATH
+   ```
+   If not, add it by modifying your shell profile file (e.g., `~/.bashrc`, `~/.zshrc`, etc.):
+   ```bash
+   export PATH=$PATH:/usr/local/bin
+   ```
+   After adding it to your profile file, source the file to apply the changes:
+   ```bash
+   source ~/.bashrc
+   ```
+
+4. **Create a Symbolic Link (Optional but Recommended):**
    ```bash
    sudo ln -s /usr/local/bin/vestra /usr/bin/vestra
    ```
@@ -47,10 +66,8 @@ You can also download and use the pre-built binaries from the [Releases](https:/
 
 1. **Download the Latest Release:**
 
-   Go to the [Releases](https://github.com/DrCodfish/Vestra/releases) page and download the appropriate `.zip` or `.tar.gz`
-   Currently the only versions are avaible for Debain
-   
-   
+   Go to the [Releases](https://github.com/DrCodfish/Vestra/releases) page and download the appropriate `.zip` or `.tar.gz` file for your operating system.
+
 2. **Extract the Archive:**
 
    For `.zip` files:
@@ -75,9 +92,49 @@ You can also download and use the pre-built binaries from the [Releases](https:/
    sudo ln -s /usr/local/bin/vestra /usr/bin/vestra
    ```
 
+### Example: Installing from a .tar.gz File in the Home Directory
+
+If you have downloaded the `.tar.gz` file to your home directory (`~/`), follow these steps to install Vestra:
+
+1. **Navigate to Your Home Directory:**
+
+   ```bash
+   cd ~
+   ```
+
+2. **Extract the .tar.gz File:**
+
+   ```bash
+   tar -xvzf vestra-x.y.z.tar.gz
+   ```
+
+3. **Navigate to the Extracted Directory:**
+
+   ```bash
+   cd vestra-x.y.z
+   ```
+
+4. **Install the Binary:**
+
+   ```bash
+   sudo cp vestra /usr/local/bin/vestra
+   ```
+
+5. **Ensure the Binary is Executable:**
+
+   ```bash
+   sudo chmod +x /usr/local/bin/vestra
+   ```
+
+6. **Create a Symbolic Link (Optional but Recommended):**
+
+   ```bash
+   sudo ln -s /usr/local/bin/vestra /usr/bin/vestra
+   ```
+
 ### Running a Vestra Script
 
-Create a simple Vestra script (example.vss):
+Create a simple Vestra script (example.vs):
 
 ```bash
 set greeting = "Hello, Vestra!"

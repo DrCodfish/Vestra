@@ -55,7 +55,21 @@ Vestra is a lightweight, flexible, and powerful interpreted language designed fo
    ```bash
    sudo ln -s /usr//release/vestra /usr/bin/vestra
    ```
-
+7. **Add it to your path**
+   a.
+   ```bash
+   cd
+   nano ~/.bashrc
+   ```
+   b. Add the Export Line:
+   ```bash
+   export PATH=/usr/local/release/:$PATH
+   ```
+   c. For nano, press CTRL + O to save and CTRL + X to exit.
+   d. Apply the changes
+   ```bash
+   source ~/.bashrc
+   ```
 ### Running a Vestra Script
 
 Create a simple Vestra script (example.vs):

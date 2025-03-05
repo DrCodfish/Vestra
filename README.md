@@ -62,6 +62,9 @@ Vestra is a lightweight, flexible, and powerful interpreted language designed fo
    a.
    ```bash
    cd
+   ```
+   You can use any editor instead of nano to edit your .bashrc
+   ```bash
    nano ~/.bashrc
    ```
    b. Add the Export Line:

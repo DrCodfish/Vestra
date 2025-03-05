@@ -99,31 +99,31 @@ If you have downloaded the `.tar.gz` file to your home directory (`~/`), follow 
 2. **Extract the .tar.gz File:**
 
    ```bash
-   tar -xvzf vestra-x64_86-x.y.z.tar.gz
+   tar -xvzf vestra-x.y.z.tar.gz
    ```
 
 3. **Navigate to the created directory**
 
    ```bash
-   cd bin
+   cd vestra-x.y.z
    ```
 
 4. **Install the Binary:**
 
    ```bash
-   sudo cp vestra /usr/local/bin/release/vestra
+   sudo cp vestra /usr/local/release/vestra
    ```
 
 5. **Ensure the Binary is Executable:**
 
    ```bash
-   sudo chmod +x /usr/local/bin/release/vestra
+   sudo chmod +x /usr/local/release/vestra
    ```
 
 6. **Create a Symbolic Link (Optional but Recommended):**
 
    ```bash
-   sudo ln -s /usr//bin/release/vestra /usr/bin/vestra
+   sudo ln -s /usr//release/vestra /usr/bin/vestra
    ```
 
 ### Running a Vestra Script

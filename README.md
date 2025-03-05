@@ -58,6 +58,7 @@ Vestra is a lightweight, flexible, and powerful interpreted language designed fo
    sudo ln -s /usr//release/vestra /usr/bin/vestra
    ```
 8. **Add it to your path**
+
    a.
    ```bash
    cd

@@ -1,4 +1,3 @@
-use crate::parser::Command;
 use crate::token::Token;
 
 pub struct Tokenizer {
@@ -12,30 +11,43 @@ impl Tokenizer {
         }
     }
 
-    pub fn tokenize(&mut self, _input: &str) -> Vec<Token> {
+    pub fn tokenize(&mut self, input: &str) -> Vec<Token> {
         let mut tokens = Vec::new();
+        let chars: Vec<char> = input.chars().collect();
+        let mut i = 0;
 
-        // Tokenization logic based on `_input` here
-        // Temporary hardcoded tokens
-        tokens.push(Token::Print("Hello, world!".to_string()));
-        tokens.push(Token::Set("var_name".to_string(), "value".to_string()));
-        tokens.push(Token::If(
-            "true".to_string(),
-            vec![Command::Print("True branch".to_string())],
-            vec![Command::Print("False branch".to_string())],
-        ));
-        tokens.push(Token::While(
-            "true".to_string(),
-            vec![Command::Print("While loop".to_string())],
-        ));
+        while i < chars.len() {
+            match chars[i] {
+                '"' => {
+                    let mut str_literal = String::new();
+                    i += 1;
+                    while i < chars.len() && chars[i] != '"' {
+                        str_literal.push(chars[i]);
+                        i += 1;
+                    }
+                    if i < chars.len() && chars[i] == '"' {
+                        tokens.push(Token::StringLiteral(str_literal));
+                        i += 1;
+                    } else {
+                        // Handle error: missing closing quote
+                        panic!("Unterminated string literal");
+                    }
+                }
+                '0'..='9' => {
+                    let mut number = String::new();
+                    while i < chars.len() && chars[i].is_numeric() {
+                        number.push(chars[i]);
+                        i += 1;
+                    }
+                    tokens.push(Token::Number(number.parse().unwrap()));
+                }
+                _ => {
+                    i += 1;
+                }
+            }
+        }
 
-        // Example tokens that might be encountered in a real script
-        tokens.push(Token::StringLiteral("A string".to_string()));
-        tokens.push(Token::Number(42.0));
-        tokens.push(Token::Boolean(true));
-        tokens.push(Token::Nil);
         tokens.push(Token::EOF);
-
         tokens
     }
 }

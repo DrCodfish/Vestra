@@ -35,11 +35,7 @@ pub fn parse(tokens: Vec<Token>) -> Result<Vec<Command>, String> {
                 commands.push(Command::While(cond.clone(), cmds.clone()));
                 index += 1;
             }
-            Token::StringLiteral(_)
-            | Token::Number(_)
-            | Token::Boolean(_)
-            | Token::Nil
-            | Token::EOF => {
+            Token::StringLiteral(_) | Token::Number(_) | Token::Boolean(_) | Token::Nil | Token::EOF => {
                 // Handle or ignore these tokens if they are not required for commands
                 index += 1;
             }

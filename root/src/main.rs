@@ -6,7 +6,7 @@ use vestra::tokenizer::Tokenizer;
 
 fn main() {
     let matches = Command::new("Vestra")
-        .version("0.3.1")
+        .version("0.4.1")
         .author("Author Name <DrCodfish")
         .about("A custom language interpreter")
         .subcommand(

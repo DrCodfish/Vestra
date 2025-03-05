@@ -10,14 +10,6 @@ Vestra is a lightweight, flexible, and powerful interpreted language designed fo
 - **Powerful Control Structures**: Vestra supports conditionals, loops, and variable assignments in a clear and expressive format.
 - **Dynamic Typing**: Work with strings, numbers, booleans, and nil values without unnecessary complexity.
 
-## **Getting Started**
-
-### Prerequisites
-
-- Rust (Specific edition and version compatibility not yet known)
-- Cargo (Rust's package manager)
-
-
 ### **System-wide instilation**
 
 1. **Navigate to Your Home Directory:**

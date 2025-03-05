@@ -29,33 +29,43 @@ Vestra is a lightweight, flexible, and powerful interpreted language designed fo
 2. **Extract the .tar.gz File:**
 
    ```bash
-   tar -xvzf vestra-x.y.z.tar.gz
+   tar -xvzf vestra-vx.y.z.tar.gz
    ```
 
 3. **Navigate to the created directory**
 
    ```bash
-   cd vestra-x.y.z
+   cd vestra-vx.y.z
    ```
 
 4. **Install the Binary:**
 
    ```bash
-   sudo cp vestra /usr/local/release/vestra
+   sudo cp release/vestra /usr/release/vestra
    ```
+   If you get a
+   ```bash
+   cp: cannot create regular file '/<usr>/release/vestra': No such file or directory
+   ```
+   Then run
+   ```bash
+   sudo mkdir -p /kiranrangoon0/local/release/
+   sudo cp release/vestra /usr/release/vestra
+   ```
+   to create the directory and try again.
 
-5. **Ensure the Binary is Executable:**
+6. **Ensure the Binary is Executable:**
 
    ```bash
    sudo chmod +x /usr/local/release/vestra
    ```
 
-6. **Create a Symbolic Link (Optional but Recommended):**
+7. **Create a Symbolic Link (Optional but Recommended):**
 
    ```bash
    sudo ln -s /usr//release/vestra /usr/bin/vestra
    ```
-7. **Add it to your path**
+8. **Add it to your path**
    a.
    ```bash
    cd

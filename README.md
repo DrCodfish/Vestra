@@ -41,7 +41,7 @@ Vestra is a lightweight, flexible, and powerful interpreted language designed fo
    ```
    Then run
    ```bash
-   sudo mkdir -p /kiranrangoon0/local/release/
+   sudo mkdir -p /usr/local/release/
    sudo cp release/vestra /usr/release/vestra
    ```
    to create the directory and try again.
